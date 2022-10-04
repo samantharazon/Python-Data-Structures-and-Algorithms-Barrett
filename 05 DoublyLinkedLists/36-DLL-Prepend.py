@@ -44,15 +44,16 @@ class DoublyLinkedList:
         self.length -= 1
         return temp
 
+    # Method to add node to beginninf
     def prepend(self, value):
-        new_node = Node(value)
-        if self.length == 0:
+        new_node = Node(value)              # create node we're going to prepend
+        if self.length == 0:                # case where length is 0
             self.head = new_node
             self.tail = new_node
         else:
-            new_node.next = self.head
-            self.head.prev = new_node
-            self.head = new_node
+            new_node.next = self.head       # new node's next pointer points to head node
+            self.head.prev = new_node       # head's previous pointer points back to new node
+            self.head = new_node            # head points to new node
         self.length += 1
         return True
 

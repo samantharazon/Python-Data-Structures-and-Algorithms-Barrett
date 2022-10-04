@@ -1,4 +1,3 @@
-
 class Node:
     def __init__(self, value):
         self.value = value
@@ -83,29 +82,46 @@ class DoublyLinkedList:
             for _ in range(self.length - 1, index, -1):
                 temp = temp.prev  
         return temp
+    
+    # Method to change value at an index
+    def set_value(self, index, value):
+        temp = self.get(index)      # using get method to point to correct node
+        if temp:                    # if temp is not none
+            temp.value = value      #       change the value of the node
+            return True
+        return False
+    
 
-
-
-
-my_doubly_linked_list = DoublyLinkedList(0)
-my_doubly_linked_list.append(1)
-my_doubly_linked_list.append(2)
+    
+  
+my_doubly_linked_list = DoublyLinkedList(11)
 my_doubly_linked_list.append(3)
+my_doubly_linked_list.append(23)
+my_doubly_linked_list.append(7)
+print('DLL before set_value():')
+my_doubly_linked_list.print_list()
 
-print('Get node from first half of DLL:')
-print(my_doubly_linked_list.get(1).value)
 
-print('\nGet node from second half of DLL:')
-print(my_doubly_linked_list.get(2).value)
+my_doubly_linked_list.set_value(1,4)
+
+print('\nDLL after set_value():')
+my_doubly_linked_list.print_list()
+
 
 
 """
     EXPECTED OUTPUT:
     ----------------
-    Get node from first half of DLL:
-    1
+    DLL before set_value():
+    11
+    3
+    23
+    7
 
-    Get node from second half of DLL:
-    2
+    DLL after set_value():
+    11
+    4
+    23
+    7
 
 """

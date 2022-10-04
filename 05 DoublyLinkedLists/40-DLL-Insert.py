@@ -90,22 +90,25 @@ class DoublyLinkedList:
             return True
         return False
     
+    # Method to insert new node at specified index with specified value
     def insert(self, index, value):
-        if index < 0 or index > self.length:
+        if index < 0 or index > self.length:    # check for index out of range
             return False
-        if index == 0:
-            return self.prepend(value)
-        if index == self.length:
-            return self.append(value)
+        if index == 0:                          # if index = 0
+            return self.prepend(value)          #       add to beginning by calling prepend method
+        if index == self.length:                # if index = last
+            return self.append(value)           #       add to end by calling append meth
 
-        new_node = Node(value)
-        before = self.get(index - 1)
-        after = before.next
+                                                # Create variables to insert node in between
+        new_node = Node(value)                  # - create node we're going to add
+        before = self.get(index - 1)            # - set variable to node before where we are inserting
+        after = before.next                     # - set after to node right next to before
 
-        new_node.prev = before
-        new_node.next = after
-        before.next = new_node
-        after.prev = new_node
+                                                # Set arrows correctly
+        new_node.prev = before                  # - new node's previous arrow goes to before
+        new_node.next = after                   # - new node's after arrow goes to after
+        before.next = new_node                  # - before's after arrow goes to new node
+        after.prev = new_node                   # - after's previous arrow goes to new node
         
         self.length += 1   
         return True  
@@ -115,26 +118,21 @@ class DoublyLinkedList:
 
 my_doubly_linked_list = DoublyLinkedList(1)
 my_doubly_linked_list.append(3)
-
-
 print('DLL before insert():')
 my_doubly_linked_list.print_list()
 
 
 my_doubly_linked_list.insert(1,2)
-
 print('\nDLL after insert(2) in middle:')
 my_doubly_linked_list.print_list()
 
 
 my_doubly_linked_list.insert(0,0)
-
 print('\nDLL after insert(0) at beginning:')
 my_doubly_linked_list.print_list()
 
 
 my_doubly_linked_list.insert(4,4)
-
 print('\nDLL after insert(4) at end:')
 my_doubly_linked_list.print_list()
 

@@ -55,6 +55,7 @@ class LinkedList:
         self.length += 1
         return True
 
+    # Method to pop node at beginning
     def pop_first(self):
         if self.length == 0:            # situation where there is no nodes
             return None

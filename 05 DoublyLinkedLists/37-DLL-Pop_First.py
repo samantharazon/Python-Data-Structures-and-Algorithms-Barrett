@@ -56,17 +56,18 @@ class DoublyLinkedList:
         self.length += 1
         return True
 
+    # Method to pop the first number
     def pop_first(self):
-        if self.length == 0:
+        if self.length == 0:                # case where list is empty
             return None
-        temp = self.head
-        if self.length == 1:
+        temp = self.head                    # temp points to head
+        if self.length == 1:                # case with 1 item
             self.head = None
             self.tail = None
         else:
-            self.head = self.head.next
-            self.head.prev = None
-            temp.next = None      
+            self.head = self.head.next     # move head to node right of it  
+            self.head.prev = None          # break head's prev 
+            temp.next = None               # break temp's next
         self.length -= 1
         return temp
 
@@ -75,14 +76,15 @@ class DoublyLinkedList:
 
 my_doubly_linked_list = DoublyLinkedList(2)
 my_doubly_linked_list.append(1)
-
+my_doubly_linked_list.print_list()
+print()
 
 # (2) Items - Returns 2 Node
-print(my_doubly_linked_list.pop_first().value)
+print("popped:", my_doubly_linked_list.pop_first().value)
 # (1) Item -  Returns 1 Node
-print(my_doubly_linked_list.pop_first().value)
+print("popped:", my_doubly_linked_list.pop_first().value)
 # (0) Items - Returns None
-print(my_doubly_linked_list.pop_first())
+print("popped:", my_doubly_linked_list.pop_first())
 
 
 """

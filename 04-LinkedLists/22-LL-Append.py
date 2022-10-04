@@ -16,10 +16,11 @@ class LinkedList:
         while temp is not None:
             print(temp.value)
             temp = temp.next
-        
+    
+    # Method to append to list
     def append(self, value):
         new_node = Node(value)
-        if self.head is None:   # is this list empty
+        if self.head is None:           # is this list empty
             self.head = new_node
             self.tail = new_node
         else:   

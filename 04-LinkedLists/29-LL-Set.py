@@ -73,11 +73,12 @@ class LinkedList:
         for _ in range(index):
             temp = temp.next
         return temp
-        
+    
+    # Method to change value at an index
     def set_value(self, index, value):
-        temp = self.get(index)      # using get method we declared
+        temp = self.get(index)      # using get method to point to correct node
         if temp:                    # if temp is not none
-            temp.value = value      # change the value of the node
+            temp.value = value      #       change the value of the node
             return True
         return False
     

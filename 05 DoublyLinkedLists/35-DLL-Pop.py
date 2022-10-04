@@ -30,17 +30,18 @@ class DoublyLinkedList:
         self.length += 1
         return True
 
+    # Method to pop last node
     def pop(self):
-        if self.length == 0:
+        if self.length == 0:            # case when there is no nodes
             return None
-        temp = self.tail
-        if self.length == 1:
+        temp = self.tail                # point temp to tail
+        if self.length == 1:            # case when there is 1 node
             self.head = None
             self.tail = None 
         else:       
-            self.tail = self.tail.prev
-            self.tail.next = None
-            temp.prev = None
+            self.tail = self.tail.prev  # move tail to node before it (the one left to it)
+            self.tail.next = None       # break what tail points to
+            temp.prev = None            # break what temp's previous is
         self.length -= 1
         return temp
   
@@ -49,14 +50,15 @@ class DoublyLinkedList:
 
 my_doubly_linked_list = DoublyLinkedList(1)
 my_doubly_linked_list.append(2)
-
+my_doubly_linked_list.print_list()
+print()
 
 # (2) Items - Returns 2 Node
-print(my_doubly_linked_list.pop().value)
+print("popped:", my_doubly_linked_list.pop().value)
 # (1) Item -  Returns 1 Node
-print(my_doubly_linked_list.pop().value)
+print("popped:", my_doubly_linked_list.pop().value)
 # (0) Items - Returns None
-print(my_doubly_linked_list.pop())
+print("popped:", my_doubly_linked_list.pop())
 
 
 

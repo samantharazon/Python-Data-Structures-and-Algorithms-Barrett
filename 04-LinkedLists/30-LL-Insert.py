@@ -81,15 +81,16 @@ class LinkedList:
             return True
         return False
     
+    # Method to insert new node at specified index with specified valu
     def insert(self, index, value):
         if index < 0 or index > self.length:    # check for index out of range
             return False
-        if index == 0:                          # add to beginning. if index = 0, call prepend method
-            return self.prepend(value)
-        if index == self.length:                # add to end. if index = last node, call append method
-            return self.append(value)
+        if index == 0:                          # if index = 0
+            return self.prepend(value)          #       add to beginning by calling prepend method
+        if index == self.length:                # if index = last
+            return self.append(value)           #       add to end by calling append method
         new_node = Node(value)                  # create node we're going to add
-        temp = self.get(index - 1)              # set temp to node before the one we are inserting
+        temp = self.get(index - 1)              # set temp to node before where we are inserting
         new_node.next = temp.next               # set new node to the one temp is pointing at
         temp.next = new_node                    # set temp's node to point to the new node
         self.length += 1   

@@ -71,17 +71,19 @@ class DoublyLinkedList:
         self.length -= 1
         return temp
 
+    # Method to get value at an index
     def get(self, index):
-        if index < 0 or index >= self.length:
+        if index < 0 or index >= self.length:               # check for invalid index
             return None
-        temp = self.head
-        if index < self.length/2:
-            for _ in range(index):
-                temp = temp.next
-        else:
-            temp = self.tail
-            for _ in range(self.length - 1, index, -1):
-                temp = temp.prev  
+        temp = self.head                                    # set temp to head
+                                                            # (KEY): Check if we start searching at head or tail...
+        if index < self.length/2:                           # if index is in first half of list
+            for _ in range(index):                          #       move temp the number of indexes
+                temp = temp.next                            #       move temp to point to next, eventually landing at value we're searching for
+        else:                                               # if index is in second half of list
+            temp = self.tail                                #       set temp to tail. so we start at the tail.
+            for _ in range(self.length - 1, index, -1):     #       start at self.length - 1 AND end at index, -1 AND decrement by 1
+                temp = temp.prev                            #       move temp to point to previous, eventually landing at value we're searching for
         return temp
 
 
@@ -91,6 +93,8 @@ my_doubly_linked_list = DoublyLinkedList(0)
 my_doubly_linked_list.append(1)
 my_doubly_linked_list.append(2)
 my_doubly_linked_list.append(3)
+my_doubly_linked_list.print_list()
+print()
 
 print('Get node from first half of DLL:')
 print(my_doubly_linked_list.get(1).value)

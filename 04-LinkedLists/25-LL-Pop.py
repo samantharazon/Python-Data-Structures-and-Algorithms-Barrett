@@ -28,14 +28,15 @@ class LinkedList:
         self.length += 1
         return True
 
+    # Method to pop node from end
     def pop(self):
         if self.length == 0:    # scenario that length we started is none
             return None
         temp = self.head
         pre = self.head
         while(temp.next):       # while temp is pointing to a node (we move it over)
-            pre = temp          # move pre to equal temp
-            temp = temp.next    # move temp over
+            pre = temp          #       move pre to equal temp
+            temp = temp.next    #       move temp over
         self.tail = pre         # move tail equal to pre
         self.tail.next = None   # pop off last node
         self.length -= 1

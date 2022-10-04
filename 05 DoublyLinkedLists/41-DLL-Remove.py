@@ -111,19 +111,26 @@ class DoublyLinkedList:
         return True  
 
     def remove(self, index):
-        if index < 0 or index >= self.length:
+        if index < 0 or index >= self.length:   # check for index out of range
             return None
-        if index == 0:
-            return self.pop_first()
-        if index == self.length - 1:
-            return self.pop()
+        if index == 0:                          # if index = 0
+            return self.pop_first()             #       remove first by calling pop_first
+        if index == self.length - 1:            # if index = last node 
+            return self.pop()                   #       remove last by calling pop
 
-        temp = self.get(index)
+        temp = self.get(index)                  # point temp to node we are removing
         
-        temp.next.prev = temp.prev
+                                                # Redirect arrows:
+        temp.next.prev = temp.prev              
         temp.prev.next = temp.next
-        temp.next = None
-        temp.prev = None
+
+        # before = self.get(index - 1)
+        # after = self.get(index + 1)
+        # before.next = after
+        # after.prev = before
+
+        temp.next = None                        # - remove node
+        temp.prev = None                        # - remove node
 
         self.length -= 1
         return temp

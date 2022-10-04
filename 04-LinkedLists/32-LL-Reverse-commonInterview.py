@@ -109,6 +109,7 @@ class LinkedList:
         self.length -= 1
         return temp
 
+    # Method to reverse list (put it backwards)
     def reverse(self):                      # We are going to swap head and tail...
         temp = self.head                    # - set temp equal to head
         self.head = self.tail               # - set head equal to tail

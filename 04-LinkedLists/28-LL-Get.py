@@ -66,12 +66,13 @@ class LinkedList:
             self.tail = None
         return temp
 
+    # Method to get value of node at an index
     def get(self, index):
         if index < 0 or index >= self.length:   # test if index is valid
             return None
         temp = self.head                        # temp points to head
         for _ in range(index):                  # move temp the number of indexes
-            temp = temp.next
+            temp = temp.next                    #       move temp to point to next, eventually landing at value we're searching for
         return temp                             # return temp
         
 

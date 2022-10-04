@@ -95,17 +95,21 @@ class LinkedList:
         self.length += 1   
         return True  
 
+    # Method to remove node at an index
     def remove(self, index):
         if index < 0 or index >= self.length:   # check for index out of range
             return None                         #       return none, because we removed none
-        if index == 0:                          # remove first. if index = 0, call popFirst
-            return self.pop_first()
-        if index == self.length - 1:            # remove last. if index = last node, call pop
-            return self.pop()
-        pre = self.get(index - 1)               # pre points to the node before the one we are removing
-        temp = pre.next                         # temp points to the pre.next because that's the one we are removing                         
-        pre.next = temp.next                    # before fully removing node at temp, prev should point to the node next to temp 
-        temp.next = None                        # remove node
+        if index == 0:                          # if index = 0
+            return self.pop_first()             #       remove first by calling pop_first
+        if index == self.length - 1:            # if index = last node 
+            return self.pop()                   #       remove last by calling pop
+
+                                                # Redirect arrows
+        pre = self.get(index - 1)               # - pre points to the node before the one we are removing
+        temp = pre.next                         # - temp points to the pre.next because that's the one we are removing                         
+        pre.next = temp.next                    # - before fully removing node at temp, prev should point to the node next to temp 
+        
+        temp.next = None                        # - remove node
         self.length -= 1
         return temp                             # return temp we removed
   

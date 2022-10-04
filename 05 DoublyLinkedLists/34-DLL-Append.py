@@ -17,15 +17,16 @@ class DoublyLinkedList:
         while temp is not None:
             print(temp.value)
             temp = temp.next
-        
+    
+    # Method to append to list
     def append(self, value):
-        new_node = Node(value)
-        if self.head is None:
-            self.head = new_node
-            self.tail = new_node
+        new_node = Node(value)              # create a new node
+        if self.head is None:               # if it is empty...
+            self.head = new_node            #   head is equal to new node
+            self.tail = new_node            #   tail is equal to new node
         else:
-            self.tail.next = new_node
-            new_node.prev = self.tail
+            self.tail.next = new_node       
+            new_node.prev = self.tail       
             self.tail = new_node
         self.length += 1
         return True

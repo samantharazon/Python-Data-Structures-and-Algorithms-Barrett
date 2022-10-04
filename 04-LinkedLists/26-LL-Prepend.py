@@ -44,6 +44,7 @@ class LinkedList:
             self.tail = None
         return temp
 
+    # Method to add node to beginning
     def prepend(self, value):
         new_node = Node(value)          # create new node
         if self.length == 0:            # situation for empty list
