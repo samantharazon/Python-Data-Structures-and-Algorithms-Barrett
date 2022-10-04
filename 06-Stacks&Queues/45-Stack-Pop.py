@@ -26,12 +26,13 @@ class Stack:
         self.height += 1
         return True
 
+    # Method to pop top node
     def pop(self):
-        if self.height == 0:
+        if self.height == 0:        # case where there is no items in stack
             return None
-        temp = self.top
-        self.top = self.top.next
-        temp.next = None
+        temp = self.top             # temp points to top node (one we are removing)
+        self.top = self.top.next    # top moves down to next node
+        temp.next = None            # remove temp node
         self.height -= 1
         return temp
     
@@ -42,13 +43,11 @@ my_stack = Stack(4)
 my_stack.push(3)
 my_stack.push(2)
 my_stack.push(1)
-
 print('Stack before pop():')
 my_stack.print_stack()
 
 print('\nPopped node:')
 print(my_stack.pop().value)
-
 print('\nStack after pop():')
 my_stack.print_stack()
 

@@ -28,16 +28,17 @@ class Queue:
         self.length += 1
         return True
 
+    # Method to dequeue from beginning 
     def dequeue(self):
-        if self.length == 0:
+        if self.length == 0:                # case where there is no items in queue
             return None
-        temp = self.first
-        if self.length == 1:
+        temp = self.first                   # temp points to first node
+        if self.length == 1:                # case where there is 1 node
             self.first = None
             self.last = None
         else:
-            self.first = self.first.next
-            temp.next = None
+            self.first = self.first.next    # move first to point to node to the right of it
+            temp.next = None                # remove temp
         self.length -= 1
         return temp
 
@@ -46,13 +47,18 @@ class Queue:
  
 my_queue = Queue(1)
 my_queue.enqueue(2)
+my_queue.print_queue()
+print("-------------")
 
 # (2) Items - Returns 2 Node
 print(my_queue.dequeue().value)
+print()
 # (1) Item -  Returns 1 Node
 print(my_queue.dequeue().value)
+print()
 # (0) Items - Returns None
 print(my_queue.dequeue())
+print()
 
 
 
