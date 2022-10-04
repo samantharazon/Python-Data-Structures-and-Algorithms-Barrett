@@ -82,16 +82,16 @@ class LinkedList:
         return False
     
     def insert(self, index, value):
-        if index < 0 or index > self.length:
+        if index < 0 or index > self.length:    # check for index out of range
             return False
-        if index == 0:
+        if index == 0:                          # add to beginning. if index = 0, call prepend method
             return self.prepend(value)
-        if index == self.length:
+        if index == self.length:                # add to end. if index = last node, call append method
             return self.append(value)
-        new_node = Node(value)
-        temp = self.get(index - 1)
-        new_node.next = temp.next
-        temp.next = new_node
+        new_node = Node(value)                  # create node we're going to add
+        temp = self.get(index - 1)              # set temp to node before the one we are inserting
+        new_node.next = temp.next               # set new node to the one temp is pointing at
+        temp.next = new_node                    # set temp's node to point to the new node
         self.length += 1   
         return True  
   
@@ -100,29 +100,23 @@ class LinkedList:
 
 my_linked_list = LinkedList(1)
 my_linked_list.append(3)
-
-
 print('LL before insert():')
 my_linked_list.print_list()
 
 
 my_linked_list.insert(1,2)
-
 print('\nLL after insert(2) in middle:')
 my_linked_list.print_list()
 
 
 my_linked_list.insert(0,0)
-
 print('\nLL after insert(0) at beginning:')
 my_linked_list.print_list()
 
 
 my_linked_list.insert(4,4)
-
 print('\nLL after insert(4) at end:')
 my_linked_list.print_list()
-
 
 
 """

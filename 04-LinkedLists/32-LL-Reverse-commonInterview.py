@@ -109,17 +109,17 @@ class LinkedList:
         self.length -= 1
         return temp
 
-    def reverse(self):
-        temp = self.head
-        self.head = self.tail
-        self.tail = temp
-        after = temp.next
-        before = None
-        for _ in range(self.length):
-            after = temp.next
-            temp.next = before
-            before = temp
-            temp = after
+    def reverse(self):                      # We are going to swap head and tail...
+        temp = self.head                    # - set temp equal to head
+        self.head = self.tail               # - set head equal to tail
+        self.tail = temp                    # - set tail equal to temp
+        after = temp.next                   # (a) after is to the right side of temp 
+        before = None                       # (b) before is to the left side of temp 
+        for _ in range(self.length):        # Traverse through length of list and reverse by moving temp, after, before....
+            after = temp.next               # - move after
+            temp.next = before              # - reverse 
+            before = temp                   # - move before
+            temp = after                    # - move temp
   
 
 

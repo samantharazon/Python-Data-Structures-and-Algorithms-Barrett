@@ -96,18 +96,18 @@ class LinkedList:
         return True  
 
     def remove(self, index):
-        if index < 0 or index >= self.length:
-            return None
-        if index == 0:
+        if index < 0 or index >= self.length:   # check for index out of range
+            return None                         #       return none, because we removed none
+        if index == 0:                          # remove first. if index = 0, call popFirst
             return self.pop_first()
-        if index == self.length - 1:
+        if index == self.length - 1:            # remove last. if index = last node, call pop
             return self.pop()
-        pre = self.get(index - 1)
-        temp = pre.next
-        pre.next = temp.next
-        temp.next = None
+        pre = self.get(index - 1)               # pre points to the node before the one we are removing
+        temp = pre.next                         # temp points to the pre.next because that's the one we are removing                         
+        pre.next = temp.next                    # before fully removing node at temp, prev should point to the node next to temp 
+        temp.next = None                        # remove node
         self.length -= 1
-        return temp
+        return temp                             # return temp we removed
   
 
 
@@ -122,7 +122,7 @@ print('LL before remove():')
 my_linked_list.print_list()
 
 print('\nRemoved node:')
-print(my_linked_list.remove(2).value)
+print(my_linked_list.remove(2).value)   # remove at index of 2
 print('LL after remove() in middle:')
 my_linked_list.print_list()
 

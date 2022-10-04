@@ -67,12 +67,12 @@ class LinkedList:
         return temp
 
     def get(self, index):
-        if index < 0 or index >= self.length:
+        if index < 0 or index >= self.length:   # test if index is valid
             return None
-        temp = self.head
-        for _ in range(index):
+        temp = self.head                        # temp points to head
+        for _ in range(index):                  # move temp the number of indexes
             temp = temp.next
-        return temp
+        return temp                             # return temp
         
 
 

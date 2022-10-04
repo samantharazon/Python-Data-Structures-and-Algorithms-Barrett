@@ -75,9 +75,9 @@ class LinkedList:
         return temp
         
     def set_value(self, index, value):
-        temp = self.get(index)
-        if temp:
-            temp.value = value
+        temp = self.get(index)      # using get method we declared
+        if temp:                    # if temp is not none
+            temp.value = value      # change the value of the node
             return True
         return False
     
@@ -92,7 +92,7 @@ my_linked_list.append(7)
 print('LL before set_value():')
 my_linked_list.print_list()
 
-my_linked_list.set_value(1,4)
+my_linked_list.set_value(1,4)   # set value at index 1 to be 4
 
 print('\nLL after set_value():')
 my_linked_list.print_list()
