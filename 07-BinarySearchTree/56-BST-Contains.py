@@ -30,15 +30,15 @@ class BinarySearchTree:
                 temp = temp.right
 
     def contains(self, value):
-        temp = self.root
-        while (temp is not None):
-            if value < temp.value:
-                temp = temp.left
-            elif value > temp.value:
-                temp = temp.right
-            else:
-                return True
-        return False
+        temp = self.root                # set temp to root
+        while (temp is not None):       # while temp is Not None. (once temp reaches end of tree, it equals none)
+            if value < temp.value:      #   if value less than temp
+                temp = temp.left        #           go left
+            elif value > temp.value:    #   if value more than temp
+                temp = temp.right       #           go right
+            else:                       #   if value equal to temp
+                return True             #           return true
+        return False                    #   else, value not in tree. return false
         
 
 

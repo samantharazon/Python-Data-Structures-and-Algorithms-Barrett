@@ -7,12 +7,12 @@ class Node:
 
 class BinarySearchTree:
     def __init__(self):
-        self.root = None
+        self.root = None    # root variable
 
 
 
 
-my_tree = BinarySearchTree()
+my_tree = BinarySearchTree()    # creates empty tree
 
 print(my_tree.root)
 
