@@ -6,17 +6,19 @@ class HashTable:
         for i, val in enumerate(self.data_map): 
             print(i, ": ", val)
       
+    # creates the address
     def __hash(self, key):
         my_hash = 0
         for letter in key:
             my_hash = (my_hash + ord(letter) * 23) % len(self.data_map)
         return my_hash  
     
+    # will use hash method on key to create the address, then creates the key value pair and inserts it in a list in the hashtable
     def set_item(self, key, value):
-        index = self.__hash(key)
-        if self.data_map[index] == None:
-            self.data_map[index] = []
-        self.data_map[index].append([key, value])
+        index = self.__hash(key)                    # get address where to store key value pair
+        if self.data_map[index] == None:            # check if an empty list has already been created at the address. (remember: all addresses are initialized to None) if address space is None ...
+            self.data_map[index] = []               #       intialize an empty list at the address where key value pair will be inserted
+        self.data_map[index].append([key, value])   # put the key value pair into that empty list
     
         
 

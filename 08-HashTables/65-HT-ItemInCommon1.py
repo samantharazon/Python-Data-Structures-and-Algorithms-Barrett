@@ -1,3 +1,6 @@
+# brute force way. On^2
+
+# find if they have items in common
 def item_in_common(list1, list2):
     for i in list1:
         for j in list2:

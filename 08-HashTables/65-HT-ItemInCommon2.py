@@ -1,7 +1,10 @@
+# efficient way. O(n)
+
+# find if they have items in common
 def item_in_common(list1, list2):
-    my_dict = {}
-    for i in list1:
-        my_dict[i] = True
+    my_dict = {}                # create dictionary
+    for i in list1:             # for loop to go through list
+        my_dict[i] = True       #       take values of that and put in dictionary
 
     for j in list2:
         if j in my_dict:
