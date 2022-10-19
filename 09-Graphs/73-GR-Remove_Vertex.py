@@ -29,11 +29,12 @@ class Graph:
             return True
         return False
 
+    # remove all the edges that connect to a vertex and then remove the vertex itself completely from graph
     def remove_vertex(self, vertex):
-        if vertex in self.adj_list.keys():
-            for other_vertex in self.adj_list[vertex]:
-                self.adj_list[other_vertex].remove(vertex)
-            del self.adj_list[vertex]
+        if vertex in self.adj_list.keys():                  # check if vertex exists in graph. (D)
+            for other_vertex in self.adj_list[vertex]:      #       go to the values of the vertex which is a list of the edges it has. loop through the list of edge values for that vertex (D : ['A', 'B', 'C'])
+                self.adj_list[other_vertex].remove(vertex)  #               go to the values of the vertex and remove the vertex value in question (1st iteration: go to A : ['B', 'C', 'D'] and remove 'D')
+            del self.adj_list[vertex]                       #       after deleting all edges, delete the vertex itself
             return True
         return False        
 

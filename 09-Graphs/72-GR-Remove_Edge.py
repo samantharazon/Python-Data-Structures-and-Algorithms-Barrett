@@ -19,13 +19,14 @@ class Graph:
             return True
         return False
 
+    # remove the edge between vertex 1 and vertex 2
     def remove_edge(self, v1, v2):
-        if v1 in self.adj_list.keys() and v2 in self.adj_list.keys(): 
-            try:
-                self.adj_list[v1].remove(v2)
-                self.adj_list[v2].remove(v1)
-            except ValueError:
-                pass
+        if v1 in self.adj_list.keys() and v2 in self.adj_list.keys():   # check if v1 and v2 are vertex's that we created. if we didn't make them, they can't be removed
+            try:                                                        #       try doing:
+                self.adj_list[v1].remove(v2)                            #           remove v2 from v1's list
+                self.adj_list[v2].remove(v1)                            #           remove v1 from v2's list
+            except ValueError:                                          #       if the vertex exists but doesn't have an edge connecting it, then error happens
+                pass                                                    #           "pass" means ignore the error
             return True
         return False
 
@@ -36,6 +37,7 @@ my_graph = Graph()
 my_graph.add_vertex('A')
 my_graph.add_vertex('B')
 my_graph.add_vertex('C')
+my_graph.add_vertex('D')
 
 my_graph.add_edge('A','B')
 my_graph.add_edge('B','C')
@@ -47,10 +49,15 @@ my_graph.print_graph()
 
 my_graph.remove_edge('A','C')
 
-
 print('\nGraph after remove_edge():')
 my_graph.print_graph()
 
+
+
+my_graph.remove_edge('A','D')   # notice it doesn't throw error
+
+print('\nGraph after remove_edge():')
+my_graph.print_graph()
 
 
 """
