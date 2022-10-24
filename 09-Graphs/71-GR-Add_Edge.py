@@ -32,7 +32,7 @@ my_graph.add_edge(1,2)
 my_graph.print_graph()
 
 print()
-my_graph.add_edge(1,3)
+my_graph.add_edge(1,3) # 3 is not a vertex so should not add it
 my_graph.print_graph()
 
 """
