@@ -1,3 +1,6 @@
+# BFS is a traversal approach in which we first walk through all nodes on the same level 
+# before moving on to the next level.
+
 class Node:
     def __init__(self, value):
         self.value = value
@@ -61,21 +64,27 @@ class BinarySearchTree:
     #             queue.put(current_node.right)
     #     return results
                 
-    
+    # step 1: set root equal to current node and add it to queue
+    # step 2: pop the first item from the queue, add it to results
+    #         check if it that item has a left child, add it to queue
+    #         check if it that item has a right child, add it to queue
+    # step 3: continue step 2
     def BFS(self):
-        current_node = self.root
-        queue = []
-        results = []
-        queue.append(current_node)
+        current_node = self.root                    # root is current node
 
-        while len(queue) > 0:
-            current_node = queue.pop(0)
-            results.append(current_node.value)
-            if current_node.left is not None:
-                queue.append(current_node.left)
-            if current_node.right is not None:
-                queue.append(current_node.right)
-        return results
+        queue = []                                  #
+        results = []                                #
+
+        queue.append(current_node)                  # append to queue the current node. this also stores remembers the left and right of the node
+
+        while len(queue) > 0:                       # while the queue is not empty...
+            current_node = queue.pop(0)             #   pop from queue the first item and set it to the current node
+            results.append(current_node.value)      #   add the value of the current node to results
+            if current_node.left is not None:       #   if there is a node to the left of current one
+                queue.append(current_node.left)     #       add that left node to the queue
+            if current_node.right is not None:      #   if there is a node to the right of current one
+                queue.append(current_node.right)    #       add that right node to the queue
+        return results                              #
 
 
 

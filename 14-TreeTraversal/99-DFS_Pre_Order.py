@@ -1,3 +1,7 @@
+# DFS is also a traversal approach in which the traverse begins at the root node 
+# and proceeds through the nodes as far as possible 
+# until we reach the node with no unvisited nearby nodes.
+
 class Node:
     def __init__(self, value):
         self.value = value
@@ -57,20 +61,22 @@ class BinarySearchTree:
                 queue.append(current_node.right)
         return results
     
+    
+    # Inorder => Left, Root, Right.
+    # Preorder => Root, Left, Right.
+    # Post order => Left, Right, Root.
     def dfs_pre_order(self):
         results = []
+        # ------------------------------------------
         def traverse(current_node):
-            results.append(current_node.value)
-            if current_node.left is not None:
-                traverse(current_node.left)
-            if current_node.right is not None:
-                traverse(current_node.right)
-        traverse(self.root)
+            results.append(current_node.value)  # append to results value of current node
+            if current_node.left is not None:   # if there is a node to the left of it
+                traverse(current_node.left)     #   recursivey run traverse
+            if current_node.right is not None:  # if there is a node to the right of it
+                traverse(current_node.right)    #   recursivey run traverse
+        # ------------------------------------------
+        traverse(self.root)  # call function traverse
         return results
-
-
-
-
 
 my_tree = BinarySearchTree()
 my_tree.insert(47)
