@@ -21,6 +21,6 @@ print(my_tree.root)
 """
     EXPECTED OUTPUT:
     ----------------
-    None
+    None 
 
 """
