@@ -30,8 +30,6 @@ class BinarySearchTree:
                 temp = temp.right                   #       if spot is closed, move temp to right
 
 
-
-
 my_tree = BinarySearchTree()
 my_tree.insert(2)
 my_tree.insert(1)
